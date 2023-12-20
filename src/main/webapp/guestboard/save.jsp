@@ -22,6 +22,42 @@
 
 %>
 
+<!-- DB Connection 객체를 불러들임 -->
+<%@ include file ="../db_conn/db_conn_oracle.jsp" %>
+
+<!-- Statement 객체를 사용해서 DB에 저장함. -->
+
+<%
+	//client에서 받은 값을 DB에 저장함.
+	String sql = null;         //sql <== SQL 쿼리를 저장하는 변수
+	Statement stmt = null;     //stmt <== SQL 쿼리를 담아서 DB에 적용하는 객체
+
+	sql = "insert into guestboard (name,email,subject,content)";
+	sql = sql + " values ( '"+na +"', '"+ em +"','"+ sub +"','"+ cont +"')";  // values 앞에 공백이 있어야 붙어 나오지 않는다.
+	                      // "" 앞뒤로 ''작은 따옴표로 묶어줘야 오라클에서 실행 시 오류가 안난다.
+
+	out.println(sql);
+	
+	//Statement 객체를 활성화 : Connection 객체로 Statement 객체를 생성함.
+	stmt = conn.createStatement();
+	
+	
+	// stmt 를 사용해서 DB에 값을 insert 
+	try {
+		//DB에 값을 넣을 때 오류가 발생되더라도 전체 프로그램이 중지되지 않도록 설정
+		stmt.execute(sql);               //DataBase에 저장완료
+		
+		
+	}catch (Exception e) {
+		
+		e.printStackTrace();
+		out.println("DB 저장에 실패했습니다.");
+	}
+	
+
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +65,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	
+	<p><p><p>
 	<!--  변수에 담긴값을 출력  -->
 	<h2> 넘어오는 변수 값 출력 </h2>
 	<%= na %> <br> 
