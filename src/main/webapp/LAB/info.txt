@@ -1,0 +1,16 @@
+
+
+DB에 테이블 이름 : mem 테이블 생성 후 값 저장
+	모든 컬럼은 varchar(200)
+	
+	
+==>	
+LAB 에서 save1.jsp : Statement 객체로 DB에 값을 저장함.
+LAB 에서 save2.jsp : PreparedStatement 객체로 DB에 값을 저장함.
+
+create table mem(
+	name varchar2(200),
+	email varchar2(200),
+	subject varchar2(200),
+	contents varchar2(200)
+	);
