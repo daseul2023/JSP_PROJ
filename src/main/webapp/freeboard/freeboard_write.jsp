@@ -6,10 +6,10 @@
     <SCRIPT language="javascript">                              
     function check(){                                         
      with(document.msgwrite){                      
-      if(subject.value.length == 0){         // 유효성 검사라고 부른다.         
+      if(subject.value.length == 0){                  
        alert("제목을 입력해 주세요!!");                       
        subject.focus();                           
-       return false;              // return 을 true로 뒀을 경우 submit으로 넘어가기 때문에 false로 둬야한다.                         
+       return false;                             
       }                                         
       if(name.value.length == 0){                   
        alert("이름을 입력해 주세요!!");                  
@@ -34,7 +34,7 @@
     </HEAD>                                       
     <BODY>                                        
     <P>                                           
-    <FORM name="msgwrite" method="post" action="freeboard_save03.jsp"> <!-- 필드안에 넣는 값 = post는 인터넷 연결했을 때 값이 안보임 -->   
+    <FORM name="msgwrite" method="post" action="freeboard_save03.jsp">    
     <CENTER>                                      
     <table width="600"cellspacing="0" cellpadding="2">           
      <tr>                                        

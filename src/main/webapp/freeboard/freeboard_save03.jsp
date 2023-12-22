@@ -119,11 +119,8 @@
  
   -->
  
- <% response.sendRedirect("freeboard_list.jsp"); %>
+ <%  response.sendRedirect("freeboard_list03.jsp"); %>
  
-
- <jsp:forward page = "freeboard_list03.jsp" />
-
 
 
 <!DOCTYPE html>
